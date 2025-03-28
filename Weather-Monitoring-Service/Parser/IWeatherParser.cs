@@ -10,5 +10,6 @@ namespace Weather_Monitoring_Service.Parser
     public interface IWeatherParser
     {
         WeatherData Parse(string data);
+        bool IsCompatible(string data);
     }
 }

@@ -14,5 +14,9 @@ namespace Weather_Monitoring_Service.Parser
         {
             return JsonSerializer.Deserialize<WeatherData>(data);
         }
+        public bool IsCompatible(string data)
+        {
+            return data.StartsWith("{") && data.EndsWith("}");
+        }
     }
 }

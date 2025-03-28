@@ -16,5 +16,9 @@ namespace Weather_Monitoring_Service.Parser
             using var reader = new StringReader(data);
             return (WeatherData)serializer.Deserialize(reader);
         }
+        public bool IsCompatible(string data)
+        {
+            return data.StartsWith("<") && data.EndsWith(">");
+        }
     }
 }
