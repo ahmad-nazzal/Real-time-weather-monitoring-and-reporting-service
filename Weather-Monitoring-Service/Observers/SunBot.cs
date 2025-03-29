@@ -12,6 +12,7 @@ namespace Weather_Monitoring_Service.Observers
         public required int TemperatureThreshold { get; set; }
         public void Update(WeatherData data)
         {
+            Console.WriteLine("SunBot activated");
             if (data.Temperature > TemperatureThreshold)
                 Console.WriteLine(Message);
         }
