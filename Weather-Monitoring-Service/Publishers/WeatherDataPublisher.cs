@@ -8,7 +8,7 @@ using Weather_Monitoring_Service.Observers;
 
 namespace Weather_Monitoring_Service.Publishers
 {
-    public class WeatherDataPublisher
+    public class WeatherDataPublisher : IWeatherDataPublisher
     {
         public List<IWeatherObserver> Observers { get; set; } = new();
 
