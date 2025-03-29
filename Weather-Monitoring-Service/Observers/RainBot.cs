@@ -12,6 +12,7 @@ namespace Weather_Monitoring_Service.Observers
         public required int HumidityThreshold { get; set; }
         public void Update(WeatherData data)
         {
+            Console.WriteLine("RainBot activated");
             if (data.Humidity > HumidityThreshold)
                 Console.WriteLine(Message);
         }
