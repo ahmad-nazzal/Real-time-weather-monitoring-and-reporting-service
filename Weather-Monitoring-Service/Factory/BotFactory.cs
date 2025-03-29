@@ -13,35 +13,35 @@ namespace Weather_Monitoring_Service.Factory
     {
         public static List<IWeatherObserver> GetBots()
         {
-            string json = File.ReadAllText("Config/BotsConfiguration.json");
+            string json = File.ReadAllText(@"D:\\Trainings\\Foothill-trainig\\Tasks\\Real-time-weather-monitoring-and-reporting-service\\Weather-Monitoring-Service\\Config\\BotsConfiguration.json");
             var jsonDocument = JsonDocument.Parse(json);
             var bots = new List<IWeatherObserver>();
 
             foreach (var bot in jsonDocument.RootElement.EnumerateObject())
             {
-                if (bot.Value.GetProperty("Enabled").GetBoolean())
+                if (bot.Value.GetProperty("enabled").GetBoolean())
                 {
                     switch (bot.Name)
                     {
                         case "RainBot":
                             bots.Add(new RainBot
                             { 
-                                HumidityThreshold = bot.Value.GetProperty("HumidityThreshold").GetInt32(),
-                                Message =  bot.Value.GetProperty("Message").GetString()
+                                HumidityThreshold = bot.Value.GetProperty("humidityThreshold").GetInt32(),
+                                Message =  bot.Value.GetProperty("message").GetString()
                             });
                             break;
                         case "SunBot":
                             bots.Add(new SunBot 
                             {
-                                TemperatureThreshold = bot.Value.GetProperty("TemperatureThreshold").GetInt32(),
-                                Message = bot.Value.GetProperty("Message").GetString()
+                                TemperatureThreshold = bot.Value.GetProperty("temperatureThreshold").GetInt32(),
+                                Message = bot.Value.GetProperty("message").GetString()
                             });
                             break;
                         case "SnowBot":
                             bots.Add(new SnowBot 
                             {
-                                TemperatureThreshold = bot.Value.GetProperty("TemperatureThreshold").GetInt32(),
-                                Message = bot.Value.GetProperty("Message").GetString() 
+                                TemperatureThreshold = bot.Value.GetProperty("temperatureThreshold").GetInt32(),
+                                Message = bot.Value.GetProperty("message").GetString() 
                             });
                             break;
                     }
