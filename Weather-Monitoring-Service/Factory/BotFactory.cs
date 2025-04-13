@@ -11,9 +11,8 @@ namespace Weather_Monitoring_Service.Factory
 {
     public class BotFactory
     {
-        public static List<IWeatherObserver> GetBots()
+        public static List<IWeatherObserver> GetBots(string json)
         {
-            string json = File.ReadAllText(@"D:\\Trainings\\Foothill-trainig\\Tasks\\Real-time-weather-monitoring-and-reporting-service\\Weather-Monitoring-Service\\Config\\BotsConfiguration.json");
             var jsonDocument = JsonDocument.Parse(json);
             var bots = new List<IWeatherObserver>();
 
