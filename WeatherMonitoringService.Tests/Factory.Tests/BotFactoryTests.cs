@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentAssertions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,11 +35,10 @@ namespace WeatherMonitoringService.Tests.Factory.Tests
 
             var enabledBots = BotFactory.GetBots(json);
 
-            Assert.NotNull(enabledBots);
-            Assert.Equal(2, enabledBots.Count);
-            Assert.IsType<RainBot>(enabledBots[0]);
-            Assert.IsType<SnowBot>(enabledBots[1]);
-            Assert.DoesNotContain(enabledBots, bot => bot is SunBot);
+            enabledBots.Should().HaveCount(2);
+            enabledBots.Should().ContainSingle(b => b is RainBot);
+            enabledBots.Should().ContainSingle(b => b is SnowBot);
+            enabledBots.Should().NotContain(b => b is SunBot);
 
         }
     }
