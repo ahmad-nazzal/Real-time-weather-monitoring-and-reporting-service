@@ -95,3 +95,5 @@ The bot configurations are controlled by a JSON file that defines the behavior o
 ## Extensibility
 - New data formats (e.g., CSV, YAML) can be added easily by extending the data handling functionality.
 - New bot types can be added by creating new classes that implement a common interface (e.g., `IWeatherBot`).
+
+[![build and test](https://github.com/ahmad-nazzal/Real-time-weather-monitoring-and-reporting-service/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/ahmad-nazzal/Real-time-weather-monitoring-and-reporting-service/actions/workflows/build-and-test.yml)
